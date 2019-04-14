@@ -81,7 +81,7 @@ import reader.LogReader;
  */
 public class GUIController {
 	private Stage stage;
-	private final String REGEX_LOCATION = "src/data/RegularExpressions.csv";
+	private final String REGEX_LOCATION = "RegularExpressions.csv";
 	private Log log;
 	private boolean asAreaChart = true;
 	private boolean showZero = false;

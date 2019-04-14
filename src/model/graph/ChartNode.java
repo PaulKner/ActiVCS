@@ -34,11 +34,9 @@ import model.LogEntry;
 import sun.rmi.log.ReliableLog.LogFile;
 
 /**
- * Idea for this class was take from Internet: StackOverflow.com Major changes
- * to better fit my needs - Changed size - Changed position of the label to
- * dynamically change according to relative height in chart (labels were cut off
- * before)
- *
+ * One node that is displayed in an Area- or Linechart object
+ * Idea for this class was derived from Stackoverflow.com
+ * Major changes to fit the requirements of this project
  */
 public class ChartNode extends StackPane {
 	private TableView<EnrichedChange> fileTable = new TableView<EnrichedChange>();

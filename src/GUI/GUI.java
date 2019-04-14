@@ -5,12 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+/**
+ * Main class that starts the application
+ * @author Paul Kneringer
+ *
+ */
 public class GUI extends Application {
 	
 
 	
 	/**
-	 * Starts the application
+	 * Starts the application by creating the controller class and connecting it to the GUI
 	 */
 	@Override
 	public void start(Stage stage) {

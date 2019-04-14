@@ -4,7 +4,7 @@
 package model.git;
 
 /**
- * Written by Saimir Bala 
+ * Based on solution by Saimir Bala 
  * Source repository: https://github.com/s41m1r/MiningVCS/tree/VisualizationBranch/MiningSVN
  * Altered the class to conform to the newly created EnrichedChanges
  */

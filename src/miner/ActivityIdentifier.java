@@ -1,22 +1,21 @@
 package miner;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.joda.time.DateTime;
-import org.junit.jupiter.api.Test;
-
-import junit.framework.Assert;
-import model.Change;
 import model.ChangeTemplate;
 import model.EnrichedChange;
 import model.Log;
 import model.LogEntry;
-import model.git.GITLog;
-import model.git.GITLogEntry;
 import reader.CSVReader;
+
+/**
+ * Class for the allocation of activity labels based on regular expressions
+ * @author Paul Kneringer
+ *
+ */
 public class ActivityIdentifier {
 	private CSVReader csvRead;
 	private ArrayList<String[]> expressions;
@@ -28,8 +27,9 @@ public class ActivityIdentifier {
 
 	}
 	
-	
-	
+	/**
+	 * Receives a log and transforms all Change objects into EnrichedChange objects that contain an acitity label
+	 */
 	public Log enrichLog(Log log) {
 		EnrichedChange eC;
 
@@ -45,7 +45,10 @@ public class ActivityIdentifier {
 		return log;
 	}
 	
-	
+	/**
+	 * Identifies the activity type with regular expressions
+	 * @param c: Change object that is transformed into an EnrichedChange object
+	 */
 	public EnrichedChange identifyActivityLabel(ChangeTemplate c) {
 		Pattern pat;
 		Matcher mat;
@@ -60,20 +63,22 @@ public class ActivityIdentifier {
 				mat = pat.matcher(c.getPath());
 
 				if (mat.find()) {
-					System.out.println("Found value: " + mat.group(0) + " - IN: " + line[0] + " - REGEX: " + line[i]);
-					result = line[0];
-					
-					
+					//System.out.println("Found value: " + mat.group(0) + " - IN: " + line[0] + " - REGEX: " + line[i]);
+					result = line[0];		
 				}
 			}
 			
 		}
 		//System.out.println("ACTUAL RESULT: " + result);
-		
 		EnrichedChange eC = new EnrichedChange(c.getAction(), c.getPath(), result);
 		return eC;
 	}
 	
+	/**
+	 * Returns all identified activity types from the list of regular expressions
+	 * @param csvPath: Path to regular expressions
+	 * @return ArrayList of activity type labels
+	 */
 	public static ArrayList<String> getActivityLabels(String csvPath) {
 		CSVReader csvRead = new CSVReader();
 		ArrayList<String[]> expressions = csvRead.readFile(csvPath);

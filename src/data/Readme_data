@@ -1,1 +1,4 @@
-ese12 file in download directory is by Vasilescu and has additional regex for identification of types. 
+Content of the RegularExpression file contains constructs defined by Vasilescu et al. 
+
+Vasilescu, Bogdan, et al. "On the variation and specialisation of workload—a case study of the Gnome ecosystem community." 
+Empirical Software Engineering 19.4 (2014): 955-1008.

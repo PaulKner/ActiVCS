@@ -8,7 +8,8 @@ import java.util.ArrayList;
 /**
  * 
  * @author Paul Kneringer
- *Reads a CSV file with the method ReadFile() and returns it in ArrayList<String[]> format with the String[] representing the split up values per row. 
+ * Reads a CSV file with the method ReadFile() and returns it in ArrayList<String[]> format
+ * with the String[] representing the split up values per row. 
  */
 public class CSVReader {
 	private BufferedReader br;

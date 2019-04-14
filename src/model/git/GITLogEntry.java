@@ -12,7 +12,7 @@ import model.LogEntry;
 import org.joda.time.DateTime;
 
 /**
- * Written by Saimir Bala 
+ * Based on solution by Saimir Bala 
  * Source repository: https://github.com/s41m1r/MiningVCS/tree/VisualizationBranch/MiningSVN
  * Used to import GIT log files into Java class structure. 
  */
