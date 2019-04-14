@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GUIController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#selectFile" text="Select Log" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadLog" text="Load" />
+              <MenuItem mnemonicParsing="false" onAction="#saveLog" text="Save" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="aboutMenu" mnemonicParsing="false" onAction="#displayAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane fx:id="splitPane" dividerPositions="0.19" VBox.vgrow="ALWAYS">
+        <items>
+          <AnchorPane maxWidth="120.0" minHeight="0.0" minWidth="120.0" prefHeight="373.0" prefWidth="100.0" style="-fx-background-color: CORNSILK;">
+               <children>
+                  <VBox fx:id="vBoxSettings" layoutX="9.0" layoutY="30.0" prefHeight="343.0" prefWidth="120.0" spacing="7.0" visible="false">
+                     <children>
+                        <ChoiceBox fx:id="choiceBox" onAction="#transformLog" prefHeight="25.0" prefWidth="106.0" />
+                        <ChoiceBox fx:id="choiceBoxLevel" onAction="#transformLog" prefHeight="25.0" prefWidth="106.0" />
+                        <CheckBox fx:id="displayValueCheckBox" mnemonicParsing="false" onAction="#displayValues" prefHeight="17.0" prefWidth="105.0" text="As line chart" textOverrun="CLIP">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="showZeroCheckBox" mnemonicParsing="false" onAction="#displayZero" prefHeight="17.0" prefWidth="105.0" text="Show zero values " textOverrun="CLIP">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="autoSizeCheckBox" mnemonicParsing="false" onAction="#setAutoSize" prefHeight="7.0" prefWidth="105.0" text="Autosize" textOverrun="CLIP">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="autoSizeCheckBox1" mnemonicParsing="false" onAction="#setLogging" prefHeight="7.0" prefWidth="105.0" text="Logging" textOverrun="CLIP">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children></AnchorPane>
+          <AnchorPane fx:id="chartPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TabPane fx:id="tabPane" prefHeight="373.0" prefWidth="688.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="chartTab" onSelectionChanged="#displaySettings" text="Charts" />
+                        <Tab fx:id="diagramTab" onSelectionChanged="#hideSettings" text="KPIs">
+                          <content>
+                            <AnchorPane fx:id="visTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          </content>
+                        </Tab>
+                      <Tab fx:id="kpiTab" onSelectionChanged="#hideSettings" text="Details">
+                        <content>
+                          <AnchorPane fx:id="tabAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="622.0" />
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>
