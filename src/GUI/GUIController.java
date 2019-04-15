@@ -948,7 +948,7 @@ public class GUIController {
 	private void log(Map<String, HashMap<Integer, Integer>> curves, int loggingStepSize, String filename) {
 		try {
 
-			filename = "Statistic_Table.txt";
+			filename = "Statistics.csv";
 			FileWriter fw = new FileWriter(filename, true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter out = new PrintWriter(bw);
@@ -957,14 +957,14 @@ public class GUIController {
 			int sum = 0;
 			int val = 0;
 			//Out 2:
-			out.println("-- NEW LOG --");
-			int nrCommits = log.getAllEntries().size();
+			//out.println("-- NEW LOG --");
+			//int nrCommits = log.getAllEntries().size();
 			//format: Nr Commits & Workload & Nr Authors & Nr Types & Gini Type & Gini Authors & WL Code & WL Test & WL Doc
-			out.println(nrCommits + " & " + m.PW(ATW) +" & " + m.NAP() +" & " + m.NTP()+" & " + ((double)Math.round(m.PWS(ATW) * 100000d) / 100000d) +" & "+ ((double)Math.round(m.PIS(ATW) * 100000d) / 100000d)+" & "+m.PTW("code",ATW)+" & " + m.PTW("doc",ATW)+" & " + m.PTW("test",ATW)+" & "+m.PTW("unknown",ATW)+"\n");
-			/**
+			//out.println(nrCommits + " & " + m.PW(ATW) +" & " + m.NAP() +" & " + m.NTP()+" & " + ((double)Math.round(m.PWS(ATW) * 100000d) / 100000d) +" & "+ ((double)Math.round(m.PIS(ATW) * 100000d) / 100000d)+" & "+m.PTW("code",ATW)+" & " + m.PTW("doc",ATW)+" & " + m.PTW("test",ATW)+" & "+m.PTW("unknown",ATW)+"\n");
+			
 			out.println("%--%NEW LOG%--%");
-			out.println("--NAP:" + m.NAP() + "--NTP:" + m.NTP() + "--PIS:" + m.PIS(ATW) + "--RPIS:" + m.RPIS(ATW)
-					+ "--PW:" + m.PW(ATW) + "--PWS:" + m.PWS(ATW) + "--RPWS:" + m.RPWS(ATW));
+			out.println("NAP:" + m.NAP() + ",NTP:" + m.NTP() + ",PIS:" + m.PIS(ATW) + ",RPIS:" + m.RPIS(ATW)
+					+ ",PW:" + m.PW(ATW) + ",PWS:" + m.PWS(ATW) + ",RPWS:" + m.RPWS(ATW));
 
 			for (String type : ActivityIdentifier.getActivityLabels(REGEX_LOCATION)) {
 				out.print(type + ",");
@@ -987,10 +987,10 @@ public class GUIController {
 						out.print(",");
 					}
 				}
-				out.print("--PTW:" + m.PTW(type, ATW) + "--RPTW:" + m.RPTW(type, ATW) + "--PTI:" + m.PTI(type, ATW)
-						+ "R--PTI:" + m.RPTI(type, ATW) + "--CNTRL:" + sum + "\n");
+				out.print("--PTW:" + m.PTW(type, ATW) + ",RPTW:" + m.RPTW(type, ATW) + ",PTI:" + m.PTI(type, ATW)
+						+ ",RPTI:" + m.RPTI(type, ATW) + ",CNTRL:" + sum + "\n");
 						
-			}*/
+			}
 			// out.print(type+",");
 			out.close();
 		} catch (IOException e) {
